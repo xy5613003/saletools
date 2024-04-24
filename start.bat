@@ -1,0 +1,1 @@
+java -Dfile.encoding=gbk -cp "lib;.;*" com.fight.Main
