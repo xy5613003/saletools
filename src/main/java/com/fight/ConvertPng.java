@@ -4,6 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -25,7 +26,10 @@ public class ConvertPng {
             BufferedImage jpgImage = new BufferedImage(pngImage.getWidth(), pngImage.getHeight(), BufferedImage.TYPE_INT_RGB);
 
             // 3. 绘制PNG图像到新的BufferedImage对象
-            jpgImage.createGraphics().drawImage(pngImage, 0, 0, null);
+            Graphics2D graphics = jpgImage.createGraphics();
+            graphics.setBackground(Color.WHITE);
+            graphics.fillRect(0, 0, pngImage.getWidth(), pngImage.getHeight());
+            graphics.drawImage(pngImage, 0, 0, null);
 
             // 4. 创建File对象用于保存JPG图像文件
             File jpgFile = new File(jpgFilePath);

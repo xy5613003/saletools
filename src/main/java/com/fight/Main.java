@@ -25,6 +25,7 @@ public class Main {
                     String next = scanner.nextLine();
                     CompletableFuture.runAsync(() -> ConvertPng.watchFileStart(StringUtils.isEmpty(next) ? "d:\\新建文件夹" : next));
                     log.info("开始监控转换图片" + next);
+                    log.info("计算价格ing" + next);
                 }
 
             }
